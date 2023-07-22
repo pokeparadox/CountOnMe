@@ -26,11 +26,7 @@ window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdfxr/plugin.cfg")
-
-[physics]
-
-common/physics_ticks_per_second=1000
+enabled=PackedStringArray("res://addons/alternatetimer/plugin.cfg", "res://addons/gdfxr/plugin.cfg")
 
 [rendering]
 

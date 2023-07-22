@@ -1,9 +1,59 @@
-[gd_scene format=3 uid="uid://3wbpu2mnnm0d"]
+[gd_scene load_steps=3 format=3 uid="uid://3wbpu2mnnm0d"]
 
-[node name="Timer" type="Control"]
-layout_mode = 3
+[ext_resource type="Script" path="res://Timer/Clock.gd" id="1_kvhch"]
+[ext_resource type="PackedScene" uid="uid://blag5n7ihm6pb" path="res://addons/alternatetimer/AlternateTimer.tscn" id="1_w0oto"]
+
+[node name="Timer" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -809.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Clock" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("1_kvhch")
+
+[node name="AlternateTimer" parent="Clock" instance=ExtResource("1_w0oto")]
+
+[node name="LabelHh" type="Label" parent="Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 77
+text = "00"
+
+[node name="Label_Space1" type="Label" parent="Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 77
+text = ":"
+
+[node name="LabelMm" type="Label" parent="Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 77
+text = "00"
+
+[node name="Label_Space2" type="Label" parent="Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 77
+text = ":"
+
+[node name="LabelSs" type="Label" parent="Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 77
+text = "00"
+
+[node name="Label_Space3" type="Label" parent="Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 77
+text = ":"
+
+[node name="LabelMs" type="Label" parent="Clock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 77
+text = "000"
+
+[connection signal="hour_elapsed" from="Clock/AlternateTimer" to="Clock" method="_on_alternate_timer_hour_elapsed"]
+[connection signal="millisecond_elapsed" from="Clock/AlternateTimer" to="Clock" method="_on_alternate_timer_millisecond_elapsed"]
+[connection signal="minute_elapsed" from="Clock/AlternateTimer" to="Clock" method="_on_alternate_timer_minute_elapsed"]
+[connection signal="second_elapsed" from="Clock/AlternateTimer" to="Clock" method="_on_alternate_timer_second_elapsed"]

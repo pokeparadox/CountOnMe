@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blag5n7ihm6pb"]
+
+[ext_resource type="Script" path="res://addons/alternatetimer/AlternateTimer.gd" id="1_rws8d"]
+
+[node name="AlternateTimer" type="Node"]
+script = ExtResource("1_rws8d")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0d1i6smxh4us"]
+[gd_scene load_steps=6 format=3 uid="uid://b0d1i6smxh4us"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_clvtq"]
 [ext_resource type="PackedScene" uid="uid://815ibkvp2wpy" path="res://Counter/Counter.tscn" id="2_hh1aq"]
+[ext_resource type="PackedScene" uid="uid://3wbpu2mnnm0d" path="res://Timer/Timer.tscn" id="2_s08xb"]
 [ext_resource type="AudioStream" uid="uid://c1y4ygwaqkele" path="res://Sounds/Click.sfxr" id="3_qbsk5"]
 [ext_resource type="AudioStream" uid="uid://c03jc7mvexkr6" path="res://Sounds/Swish.sfxr" id="4_5aw1g"]
 
@@ -42,16 +43,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Enable Auto Timer"
 
-[node name="ButtonReset" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="LabelTimer" type="Label" parent="VBoxContainer"]
+[node name="Timer" parent="VBoxContainer" instance=ExtResource("2_s08xb")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Timer: Disabled"
 
 [node name="Counter" parent="VBoxContainer" instance=ExtResource("2_hh1aq")]
 layout_mode = 2
@@ -65,6 +61,5 @@ stream = ExtResource("4_5aw1g")
 
 [connection signal="pressed" from="VBoxContainer/ButtonSoundEffects" to="." method="_on_button_sound_effects_pressed"]
 [connection signal="toggled" from="VBoxContainer/ButtonTimer" to="." method="_on_button_timer_toggled"]
-[connection signal="pressed" from="VBoxContainer/ButtonReset" to="." method="_on_button_reset_pressed"]
 [connection signal="count_changed" from="VBoxContainer/Counter" to="." method="_on_counter_count_changed"]
 [connection signal="counter_zeroed" from="VBoxContainer/Counter" to="." method="_on_counter_counter_zeroed"]
