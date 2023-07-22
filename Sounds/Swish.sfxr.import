@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://c03jc7mvexkr6"
+path="res://.godot/imported/Swish.sfxr-dad65deacc55db84f1164af3bce2d741.sample"
+
+[deps]
+
+source_file="res://Sounds/Swish.sfxr"
+dest_files=["res://.godot/imported/Swish.sfxr-dad65deacc55db84f1164af3bce2d741.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0d1i6smxh4us"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_clvtq"]
+[ext_resource type="PackedScene" uid="uid://815ibkvp2wpy" path="res://Counter/Counter.tscn" id="2_hh1aq"]
+[ext_resource type="AudioStream" uid="uid://c1y4ygwaqkele" path="res://Sounds/Click.sfxr" id="3_qbsk5"]
+[ext_resource type="AudioStream" uid="uid://c03jc7mvexkr6" path="res://Sounds/Swish.sfxr" id="4_5aw1g"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_clvtq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Count On Me!"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonSoundEffects" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Toggle Sound Effects"
+
+[node name="ButtonTimer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Enable Timer"
+
+[node name="ButtonAutoTimer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Enable Auto Timer"
+
+[node name="ButtonReset" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelTimer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Timer: Disabled"
+
+[node name="Counter" parent="VBoxContainer" instance=ExtResource("2_hh1aq")]
+layout_mode = 2
+alignment = 2
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qbsk5")
+
+[node name="SwishSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5aw1g")
+
+[connection signal="pressed" from="VBoxContainer/ButtonSoundEffects" to="." method="_on_button_sound_effects_pressed"]
+[connection signal="toggled" from="VBoxContainer/ButtonTimer" to="." method="_on_button_timer_toggled"]
+[connection signal="pressed" from="VBoxContainer/ButtonReset" to="." method="_on_button_reset_pressed"]
+[connection signal="count_changed" from="VBoxContainer/Counter" to="." method="_on_counter_count_changed"]
+[connection signal="counter_zeroed" from="VBoxContainer/Counter" to="." method="_on_counter_counter_zeroed"]
