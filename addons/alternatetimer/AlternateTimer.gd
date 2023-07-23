@@ -1,5 +1,5 @@
 extends Node
-
+class_name AlternateTimer
 # Editor vars
 @export var wait_time : int = 1000
 @export var one_shot : bool = false

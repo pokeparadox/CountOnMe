@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://bh0df4hi6vxgv"
+path="res://.godot/imported/Boop.sfxr-ff6dd575479bcc601b63c1df60cf9f72.sample"
+
+[deps]
+
+source_file="res://Sounds/Boop.sfxr"
+dest_files=["res://.godot/imported/Boop.sfxr-ff6dd575479bcc601b63c1df60cf9f72.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

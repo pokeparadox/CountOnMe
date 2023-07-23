@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://bqaks05s4r2oc"
+path="res://.godot/imported/Ding.sfxr-e1f414c17be24a06fc956c0b4bd3226b.sample"
+
+[deps]
+
+source_file="res://Sounds/Ding.sfxr"
+dest_files=["res://.godot/imported/Ding.sfxr-e1f414c17be24a06fc956c0b4bd3226b.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

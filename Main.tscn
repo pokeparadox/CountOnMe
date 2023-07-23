@@ -33,16 +33,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Toggle Sound Effects"
 
-[node name="ButtonTimer" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Enable Timer"
-
-[node name="ButtonAutoTimer" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Enable Auto Timer"
-
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -60,6 +50,5 @@ stream = ExtResource("3_qbsk5")
 stream = ExtResource("4_5aw1g")
 
 [connection signal="pressed" from="VBoxContainer/ButtonSoundEffects" to="." method="_on_button_sound_effects_pressed"]
-[connection signal="toggled" from="VBoxContainer/ButtonTimer" to="." method="_on_button_timer_toggled"]
 [connection signal="count_changed" from="VBoxContainer/Counter" to="." method="_on_counter_count_changed"]
 [connection signal="counter_zeroed" from="VBoxContainer/Counter" to="." method="_on_counter_counter_zeroed"]

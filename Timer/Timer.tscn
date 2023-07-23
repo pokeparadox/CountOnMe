@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://3wbpu2mnnm0d"]
+[gd_scene load_steps=7 format=3 uid="uid://3wbpu2mnnm0d"]
 
+[ext_resource type="Script" path="res://Timer/Timer.gd" id="1_11jcb"]
 [ext_resource type="Script" path="res://Timer/Clock.gd" id="1_kvhch"]
-[ext_resource type="PackedScene" uid="uid://blag5n7ihm6pb" path="res://addons/alternatetimer/AlternateTimer.tscn" id="1_w0oto"]
+[ext_resource type="Script" path="res://addons/alternatetimer/AlternateTimer.gd" id="2_r8k52"]
+[ext_resource type="AudioStream" uid="uid://7143ra1oqe1e" path="res://Sounds/Tick.sfxr" id="3_m2bc7"]
+[ext_resource type="AudioStream" uid="uid://bh0df4hi6vxgv" path="res://Sounds/Boop.sfxr" id="4_hv6wx"]
+[ext_resource type="AudioStream" uid="uid://bqaks05s4r2oc" path="res://Sounds/Ding.sfxr" id="5_2l5rk"]
 
 [node name="Timer" type="VBoxContainer"]
 anchors_preset = 15
@@ -10,13 +14,21 @@ anchor_bottom = 1.0
 offset_bottom = -809.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_11jcb")
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
 
 [node name="Clock" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 script = ExtResource("1_kvhch")
 
-[node name="AlternateTimer" parent="Clock" instance=ExtResource("1_w0oto")]
+[node name="AlternateTimer" type="Node" parent="Clock"]
+script = ExtResource("2_r8k52")
+
+[node name="VSeparator" type="VSeparator" parent="Clock"]
+layout_mode = 2
 
 [node name="LabelHh" type="Label" parent="Clock"]
 layout_mode = 2
@@ -53,7 +65,48 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 77
 text = "000"
 
+[node name="TickTockSound" type="AudioStreamPlayer" parent="Clock"]
+stream = ExtResource("3_m2bc7")
+
+[node name="BoopSound" type="AudioStreamPlayer" parent="Clock"]
+stream = ExtResource("4_hv6wx")
+
+[node name="DingSound" type="AudioStreamPlayer" parent="Clock"]
+stream = ExtResource("5_2l5rk")
+
+[node name="VSeparator2" type="VSeparator" parent="Clock"]
+layout_mode = 2
+
+[node name="HSeparator1" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="ClockControls" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ButtonSoundOnOff" type="Button" parent="ClockControls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Sound Off"
+
+[node name="VSeparator" type="VSeparator" parent="ClockControls"]
+layout_mode = 2
+
+[node name="ButtonReset" type="Button" parent="ClockControls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Reset"
+
+[node name="ButtonStartStop" type="Button" parent="ClockControls"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
 [connection signal="hour_elapsed" from="Clock/AlternateTimer" to="Clock" method="_on_alternate_timer_hour_elapsed"]
 [connection signal="millisecond_elapsed" from="Clock/AlternateTimer" to="Clock" method="_on_alternate_timer_millisecond_elapsed"]
 [connection signal="minute_elapsed" from="Clock/AlternateTimer" to="Clock" method="_on_alternate_timer_minute_elapsed"]
 [connection signal="second_elapsed" from="Clock/AlternateTimer" to="Clock" method="_on_alternate_timer_second_elapsed"]
+[connection signal="finished" from="Clock/DingSound" to="Clock" method="_on_ding_sound_finished"]
+[connection signal="pressed" from="ClockControls/ButtonSoundOnOff" to="." method="_on_button_sound_on_off_pressed"]
+[connection signal="pressed" from="ClockControls/ButtonReset" to="." method="_on_button_reset_pressed"]
+[connection signal="pressed" from="ClockControls/ButtonStartStop" to="." method="_on_button_start_stop_pressed"]
