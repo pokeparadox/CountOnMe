@@ -11,10 +11,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_prexb")
 
-[node name="ButtonRezero" type="Button" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="ButtonRezero" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 80
-text = "Re-Zero"
+text = "Reset"
+
+[node name="ButtonMode" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 80
+text = "BPM"
 
 [node name="LabelCount" type="Label" parent="."]
 layout_mode = 2
@@ -27,5 +37,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 125
 text = "COUNT"
 
-[connection signal="pressed" from="ButtonRezero" to="." method="_on_button_rezero_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonRezero" to="." method="_on_button_rezero_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonMode" to="." method="_on_button_mode_pressed"]
 [connection signal="pressed" from="ButtonCount" to="." method="_on_button_count_pressed"]

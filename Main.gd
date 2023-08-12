@@ -3,9 +3,6 @@ extends Control
 var milliseconds : int = 0
 var enable_sounds : bool = true
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 func _on_timer_timeout():
 	milliseconds = milliseconds + 1
@@ -25,9 +22,6 @@ func _on_button_timer_toggled(button_pressed):
 func _on_counter_count_changed(current_count):
 	if enable_sounds:
 		$ClickSound.play()
-	# we can save the value
-	
-
 
 func _on_counter_counter_zeroed(last_count):
 	if enable_sounds:
@@ -40,4 +34,4 @@ func _on_counter_counter_zeroed(last_count):
 
 func _on_button_sound_effects_pressed():
 	enable_sounds = not enable_sounds
-	
+	$VBoxContainer/Timer.ui_sound_enabled = enable_sounds
