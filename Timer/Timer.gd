@@ -32,4 +32,3 @@ func _on_button_start_stop_pressed():
 	else:
 		$Clock/AlternateTimer.start()
 		$ClockControls/ButtonStartStop.text = "Stop"
-

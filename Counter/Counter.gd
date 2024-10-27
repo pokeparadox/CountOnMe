@@ -2,7 +2,7 @@ extends VBoxContainer
 
 @export var max_digits : int = 8
 var count : int = 0
- 
+
 enum COUNT_MODE
 {
 	COUNT,
@@ -33,7 +33,7 @@ func _on_button_count_pressed():
 		_bpm_calc.beat()
 	count += 1
 	set_label()
-	
+
 
 
 func _on_button_rezero_pressed():
@@ -48,6 +48,6 @@ func _on_button_mode_pressed() -> void:
 	if count_mode == COUNT_MODE.COUNT:
 		$HBoxContainer/ButtonMode.text = "Counter"
 		count_mode = COUNT_MODE.BPM
-	else: 
+	else:
 		$HBoxContainer/ButtonMode.text = "BPM"
 		count_mode = COUNT_MODE.COUNT

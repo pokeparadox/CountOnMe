@@ -7,7 +7,7 @@ var enable_sounds : bool = true
 func _on_timer_timeout():
 	milliseconds = milliseconds + 1
 	# Convert to hh:mm::ss::ms
-	
+
 	##Display
 	$VBoxContainer/LabelTimer.text = str(milliseconds)
 

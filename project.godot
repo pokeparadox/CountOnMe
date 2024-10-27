@@ -11,11 +11,15 @@ config_version=5
 [application]
 
 config/name="Count On Me"
+config/name_localized={
+"es_ES": "Cuenta conmigo"
+}
 config/description="A Counting Application"
+config/version="1.0"
 config/tags=PackedStringArray("tool")
 run/main_scene="res://Main.tscn"
-config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://CountOnMe512.png"
 
 [display]
 
@@ -28,7 +32,12 @@ window/handheld/orientation=1
 
 enabled=PackedStringArray("res://addons/alternatetimer/plugin.cfg", "res://addons/gdfxr/plugin.cfg")
 
+[internationalization]
+
+locale/locale_filter_mode=0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

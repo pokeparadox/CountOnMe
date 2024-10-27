@@ -22,10 +22,10 @@ func _process(delta):
 
 func get_ms() -> int:
 	return int($LabelMs.text)
-	
+
 func get_s() -> int:
 	return int($LabelSs.text)
-	
+
 func get_m() -> int:
 	return int($LabelMm.text)
 
@@ -43,7 +43,7 @@ func set_m(m : int) -> void:
 
 func set_h(h : int) -> void:
 	$LabelHh.text = str(h).pad_zeros(2)
-	
+
 func _on_alternate_timer_millisecond_elapsed(num_ms):
 	set_ms(num_ms)
 

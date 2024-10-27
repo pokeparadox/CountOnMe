@@ -19,7 +19,7 @@ func reset() -> void:
 	_index = 0
 	_has_enough_beats = false
 	beats.clear()
-	
+
 func get_current_bpm() -> float:
 	if _has_enough_beats:
 		var current_ticks : int = Time.get_ticks_msec()

@@ -50,7 +50,7 @@ func reset() -> void:
 
 func ticks() -> int:
 	return Time.get_ticks_msec()
-	
+
 # Check for elapsed timeout
 func iteration() -> void:
 	if ticks() - start_ticks > wait_time:
@@ -82,7 +82,7 @@ func minute() -> bool:
 		emit_signal("minute_elapsed", to_display)
 		return true
 	return false
-	
+
 func second() -> bool:
 	if milliseconds > MILLISECONDS-1:
 		milliseconds = 0
@@ -104,7 +104,7 @@ func millisecond() -> bool:
 		emit_signal("millisecond_elapsed", mini(milliseconds, MILLISECONDS - 1))
 		return true
 	return false
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -114,4 +114,3 @@ func _process(_delta):
 			if second():
 				if minute():
 					hour()
-
